@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState } from "react"
+import AudioPlayer from "./component/AudioPlayer"
+import Home from "./pages/Home.page"
+import User from "./pages/User.page"
+import Test from "./pages/Test.page"
+import Search from "./pages/Search.page"
+import Category from "./pages/Category.page"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  const [queue, setQueue] = useState([])
+  const [currentPlaying, setCurrentPlaying] = useState({})
+
+  return <BrowserRouter>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/search=:keyword" element={<Search queue={queue} setQueue={setQueue} setCurrentPlaying={setCurrentPlaying}/>} />
+        <Route path="/category=:category" element={<Category />} />
+      </Routes>
+      <AudioPlayer currentPlaying={currentPlaying} queue={queue} setQueue={setQueue} setCurrentPlaying={setCurrentPlaying} />
     </div>
-  );
+  </BrowserRouter>
 }
 
 export default App;
