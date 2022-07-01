@@ -31,3 +31,34 @@ code {
 .rhap_container {
   @apply bg-slate-700 h-[80px] text-white !important;
 }
+
+.audio-list {
+  @apply h-[75vh] overflow-y-scroll rounded-xl p-8 bg-gray-800;
+}
+
+.button {
+  @apply px-4 py-2 rounded-lg font-bold;
+}
+
+.input {
+  @apply block p-4 pl-12 w-full text-sm text-white rounded-xl bg-gray-700;
+}
+
+.marquee {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.marquee:hover {
+  animation: marquee 12s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

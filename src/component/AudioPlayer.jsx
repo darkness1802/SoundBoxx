@@ -13,11 +13,12 @@ export default function AudioPlayer({ currentPlaying, queue, setQueue, setCurren
     // const [isPlaying, setIsPlaying] = useState(true)
     let audioRef = useRef({})
 
+
     const shorter = (str) => {
         let result = null
         if (str?.length > 30) {
             result = str?.slice(0, 30) + "..."
-        }
+        } else result = str
         return result
     }
 
