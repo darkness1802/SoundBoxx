@@ -16,8 +16,8 @@ export default function AudioPlayer({ currentPlaying, queue, setQueue, setCurren
 
     const shorter = (str) => {
         let result = null
-        if (str?.length > 30) {
-            result = str?.slice(0, 30) + "..."
+        if (str?.length > 50) {
+            result = str?.slice(0, 47) + "..."
         } else result = str
         return result
     }
@@ -32,8 +32,8 @@ export default function AudioPlayer({ currentPlaying, queue, setQueue, setCurren
             <div className="left hidden lg:flex items-center justify-evenly w-[40%] bg-slate-700 h-[80px] gap-4">
             <img src={currentPlaying.image} alt="" className="cover  h-[70px] rounded-xl" />
             <div className="info flex flex-col justify-center">
-                <h2 className="text-xl font-bold text-white">{shorter(currentPlaying.title)}</h2>
-                <span className="text-base text-gray-400">{currentPlaying.author}</span>
+                <h2 className="text-base font-bold text-white">{shorter(currentPlaying.title)}</h2>
+                <span className="text-sm text-gray-400">{currentPlaying.author}</span>
             </div>
         </div>
         <Player
@@ -48,7 +48,7 @@ export default function AudioPlayer({ currentPlaying, queue, setQueue, setCurren
             autoPlay
             controls
         />
-        <div className="right bg-slate-700 border-l-2 border-slate-500 flex items-center justify-center p-4">
+        <div className="hidden lg:flex right bg-slate-700 border-l-2 border-slate-500 flex items-center justify-center p-4">
             <BsCardList className="cursor-pointer text-[2.5rem] rounded-lg bg-slate-500 p-1 text-white"/>
         </div>
     </div>

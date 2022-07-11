@@ -56,14 +56,14 @@ export default function Search({ queue, remote, setQueue, setCurrentPlaying }) {
         <Sidebar remote={remote}/>
         <main className="w-full bg-gray-900 h-[100vh] px-8">
             <Navbar />
-            <div className="search-heading px-4 py-4 text-white text-2xl font-bold">Kết quả: </div>
+            <div className="search-heading px-4 py-4 text-white text-xl font-bold">Kết quả cho: {keyword}</div>
             <div className="audio-list scrollbar scrollbar-thumb-gray-700 scrollbar-thin">
 
                 {loading && <div className="loading">
                     <img src="/images/loading2.svg" className="" alt="" />
                 </div>}
 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                     {source && source?.videos?.map((item, index) => <Item key={index} data={item} play={play} />)}
                 </div>
 

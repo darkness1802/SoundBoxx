@@ -8,6 +8,7 @@ import { IoBookOutline } from "react-icons/io5"
 import { GiBlackBook } from "react-icons/gi"
 import Navbar from "../component/Navbar"
 import __Item__ from "../component/__Item__"
+import Scroll from "../component/Scroll"
 
 /** @type { page } descript: { None } */
 export default function Home({ remote, socket, setCurrentPlaying, setQueue }) {
@@ -56,7 +57,16 @@ export default function Home({ remote, socket, setCurrentPlaying, setQueue }) {
             <Navbar />
 
             <div className="h-[85vh] pb-20 overflow-y-scroll scrollbar scrollbar-thumb-gray-900">
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center justify-center p-8 lg:p-16">
+
+                <div className="flex items-center justify-center">
+                    <Scroll>
+                        {topRate?.map(
+                            (item, index) => <Scroll.Item key={index} data={item} play={play}/>
+                        )}
+                    </Scroll>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center justify-center p-12 lg:p-20">
                     <div onClick={() => nav(`/category=tin tức`)} className="home-card bg-gradient-to-b from-red-500 to-amber-500">
                         <ImNewspaper className="text-white text-[32px]" />
                         <h1 className="text-[32px] font-bold text-white">Tin tức</h1>
@@ -75,13 +85,13 @@ export default function Home({ remote, socket, setCurrentPlaying, setQueue }) {
                     </div>
                 </div>
 
-                <div className="flex w-full justify-center items-center px-8 lg:px-16">
+                <div className="flex w-full justify-center items-center px-8 lg:p-20">
                     <h1 className="flex flex-col lg:flex-row w-full gap-0 lg:gap-2 rounded-xl font-bold justify-center items-center bg-slate-100 w-full text-center text-2xl h-[100px]">Xem Netflix và nhiều hơn thế nữa miễn phí <a href="https://beta-bomhub.web.app" className="text-red-500">tại đây</a></h1>
                 </div>
 
-                <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-20">
                     <h1 className="mt-8 text-3xl text-center font-bold text-white">TOP TRENDING</h1>
-                    <div className="mt-8 bg-gray-800 toprate h-[55vh] py-4 px-8 lg:px-16 overflow-y-scroll scrollbar scrollbar-thumb-gray-700 scrollbar-thin">
+                    <div className="mt-8 bg-gray-800 toprate h-[55vh] py-4 px-2 lg:px-16 overflow-y-scroll scrollbar scrollbar-thumb-gray-700 scrollbar-thin">
                         {topRate?.map((item, index) => <__Item__ key={index} data={item} play={play} />)}
                     </div>
                 </div>

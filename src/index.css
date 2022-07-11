@@ -33,7 +33,7 @@ code {
 }
 
 .audio-list {
-  @apply h-[75vh] overflow-y-scroll rounded-xl p-8 bg-gray-800;
+  @apply h-[75vh] overflow-y-scroll rounded-xl p-4 lg:p-8 bg-gray-800;
 }
 
 .button {
@@ -42,6 +42,14 @@ code {
 
 .input {
   @apply block p-4 pl-12 w-full text-sm text-white rounded-xl bg-gray-700;
+}
+
+.rhap_total-time {
+  @apply text-white !important;
+}
+
+.rhap_current-time {
+  @apply text-white !important;
 }
 
 .marquee {
@@ -60,5 +68,36 @@ code {
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+.playbtn {
+  bottom: 18rem;
+  right: 45%;
+  display: flex !important;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: var(--main-color);
+  font-size: 33px;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+      box-shadow: 0 0 0 rgb(255, 180, 58, 0.7);
+  }
+  40% {
+      box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+  }
+  80% {
+      box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+  }
+  100% {
+      box-shadow: 0 0 0 rgb(255, 193, 7, 0);
   }
 }
